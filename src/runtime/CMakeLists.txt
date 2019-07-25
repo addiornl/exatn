@@ -13,15 +13,17 @@ add_library(${LIBRARY_NAME}
 
 target_include_directories(
   ${LIBRARY_NAME}
-  PUBLIC .
+  PUBLIC . graph optimizer executor
          ${CMAKE_SOURCE_DIR}/tpls/ExaTensor/include
-         ${CMAKE_SOURCE_DIR}/src/exatn
+         ${CMAKE_SOURCE_DIR}/src/exatn/numerics
          ${CMAKE_SOURCE_DIR}/tpls/cppmicroservices/framework/include
   PRIVATE
+         ${CMAKE_SOURCE_DIR}/src/exatn
          ${CMAKE_SOURCE_DIR}/src/driver-rpc
   )
 
-target_link_libraries(${LIBRARY_NAME} PUBLIC CppMicroServices exatn-numerics exatn-runtime-graph PRIVATE Boost::graph)
+target_link_libraries(${LIBRARY_NAME} PUBLIC CppMicroServices exatn-numerics
+                                      PRIVATE exatn-runtime-executor exatn-runtime-graph Boost::graph)
 
 if(APPLE)
    set_target_properties(${LIBRARY_NAME} PROPERTIES INSTALL_RPATH "@loader_path")

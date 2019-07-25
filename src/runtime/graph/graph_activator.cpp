@@ -1,3 +1,5 @@
+#include "directed_boost_graph.hpp"
+
 #include "cppmicroservices/BundleActivator.h"
 #include "cppmicroservices/BundleContext.h"
 
@@ -10,15 +12,17 @@ namespace {
 
 /**
  */
-class US_ABI_LOCAL OptimizerActivator : public BundleActivator {
+class US_ABI_LOCAL GraphActivator : public BundleActivator {
 
 public:
-  OptimizerActivator() {}
+  GraphActivator() {}
 
   /**
    */
   void Start(BundleContext context) {
 
+    auto g = std::make_shared<exatn::runtime::DirectedBoostGraph>();
+    context.RegisterService<exatn::runtime::TensorGraph>(g);
   }
 
   /**
@@ -28,4 +32,4 @@ public:
 
 } // namespace
 
-CPPMICROSERVICES_EXPORT_BUNDLE_ACTIVATOR(OptimizerActivator)
+CPPMICROSERVICES_EXPORT_BUNDLE_ACTIVATOR(GraphActivator)
