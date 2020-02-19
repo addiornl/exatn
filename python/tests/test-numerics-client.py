@@ -36,21 +36,21 @@ print("\n\n")
 #build an example tensor network
 network = exatn.TensorNetwork("{0,1} 3-site MPS closure", exatn.Tensor("Z0"),[])
 
-network.appendTensor(1, exatn.Tensor("T0", [2,2]),
-                     [exatn.TensorLeg(4,0), exatn.TensorLeg(2,0)])
-network.appendTensor(2, exatn.Tensor("T1", [2,2,2]),
-                     [exatn.TensorLeg(1,1), exatn.TensorLeg(4,1), exatn.TensorLeg(3,0)])
-network.appendTensor(3, exatn.Tensor("T2", [2,2]),
-                     [exatn.TensorLeg(2,2), exatn.TensorLeg(7,1)])
-network.appendTensor(4, exatn.Tensor("H0", [2,2,2,2]),
+network.placeTensor(1, exatn.Tensor("T0", [2,2]),
+                     [exatn.TensorLeg(4,0), exatn.TensorLeg(2,0)], False, True)
+network.placeTensor(2, exatn.Tensor("T1", [2,2,2]),
+                     [exatn.TensorLeg(1,1), exatn.TensorLeg(4,1), exatn.TensorLeg(3,0)] ,False, True)
+network.placeTensor(3, exatn.Tensor("T2", [2,2]),
+                     [exatn.TensorLeg(2,2), exatn.TensorLeg(7,1)] ,False, True)
+network.placeTensor(4, exatn.Tensor("H0", [2,2,2,2]),
                      [exatn.TensorLeg(1,0), exatn.TensorLeg(2,1),
-                      exatn.TensorLeg(5,0), exatn.TensorLeg(6,1)])
-network.appendTensor(5, exatn.Tensor("S0", [2,2]),
-                     [exatn.TensorLeg(4,2), exatn.TensorLeg(6,0)])
-network.appendTensor(6, exatn.Tensor("S1",[2,2,2]),
-                     [exatn.TensorLeg(5,1), exatn.TensorLeg(4,3), exatn.TensorLeg(7,0)])
-network.appendTensor(7, exatn.Tensor("S2", [2,2]),
-                     [exatn.TensorLeg(6,2), exatn.TensorLeg(3,1)])
+                      exatn.TensorLeg(5,0), exatn.TensorLeg(6,1)] ,False, True)
+network.placeTensor(5, exatn.Tensor("S0", [2,2]),
+                     [exatn.TensorLeg(4,2), exatn.TensorLeg(6,0)] ,False, True)
+network.placeTensor(6, exatn.Tensor("S1",[2,2,2]),
+                     [exatn.TensorLeg(5,1), exatn.TensorLeg(4,3), exatn.TensorLeg(7,0)] ,False, True)
+network.placeTensor(7, exatn.Tensor("S2", [2,2]),
+                     [exatn.TensorLeg(6,2), exatn.TensorLeg(3,1)] ,False, True)
 
 network.finalize()
 network.printIt()
@@ -58,11 +58,11 @@ network.printIt()
 
 #make another TensorNetwork to test the appendTensorNetwork functionality
 append_network = exatn.TensorNetwork("{0,1} 3-site MPS closure", exatn.Tensor("Z1"),[])
-append_network.appendTensor(1, exatn.Tensor("T3", [2,2]),
-                     [exatn.TensorLeg(4,0), exatn.TensorLeg(2,0)])
-append_network.appendTensor(4, exatn.Tensor("H1", [2,2,2,2]),
+append_network.placeTensor(1, exatn.Tensor("T3", [2,2]),
+                     [exatn.TensorLeg(4,0), exatn.TensorLeg(2,0)] ,False, True)
+append_network.placeTensor(4, exatn.Tensor("H1", [2,2,2,2]),
                      [exatn.TensorLeg(1,0), exatn.TensorLeg(2,1),
-                      exatn.TensorLeg(5,0), exatn.TensorLeg(6,1)])
+                      exatn.TensorLeg(5,0), exatn.TensorLeg(6,1)] ,False, True)
 append_network.finalize()
 
 #Because of pybind capabilities/limitations, appendTensorNetwork must be

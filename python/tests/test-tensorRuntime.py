@@ -17,30 +17,30 @@ tensor2 = exatn.Tensor("tensor2", exatn.TensorShape([32,64,64,32]))
 
 print("Create tensor operations for actual tensor construction")
 create_tensor0 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_tensor0.setTensorOperand(tensor0)
+create_tensor0.setTensorOperand(tensor0, False)
 
 create_tensor1 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_tensor1.setTensorOperand(tensor1)
+create_tensor1.setTensorOperand(tensor1, False)
 
 create_tensor2 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_tensor2.setTensorOperand(tensor2)
+create_tensor2.setTensorOperand(tensor2, False)
 
 print("Create tensor operation for contracting tensors")
 contract_tensors = op_factory.createTensorOpShared(exatn.TensorOpCode.CONTRACT)
-contract_tensors.setTensorOperand(tensor0)
-contract_tensors.setTensorOperand(tensor1)
-contract_tensors.setTensorOperand(tensor2)
+contract_tensors.setTensorOperand(tensor0, False)
+contract_tensors.setTensorOperand(tensor1, False)
+contract_tensors.setTensorOperand(tensor2, False)
 contract_tensors.setScalar(0,np.cdouble(0.5j + 0))
 contract_tensors.setIndexPattern("D(a,b,c,d)+=L(c,a,k,l)*R(d,l,k,b)")
 
 destroy_tensor2 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_tensor2.setTensorOperand(tensor2)
+destroy_tensor2.setTensorOperand(tensor2, False)
 
 destroy_tensor1 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_tensor1.setTensorOperand(tensor1)
+destroy_tensor1.setTensorOperand(tensor1, False)
 
 destroy_tensor0 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_tensor0.setTensorOperand(tensor0)
+destroy_tensor0.setTensorOperand(tensor0, False)
 
 numserver = exatn.getNumServer()
 numserver.submit(create_tensor0)

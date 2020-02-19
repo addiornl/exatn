@@ -39,35 +39,35 @@ num_server = exatn.getNumServer()
 
 # Create participating ExaTN tensors:
 create_z0 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_z0.setTensorOperand(z0)
+create_z0.setTensorOperand(z0, False)
 num_server.submit(create_z0)
 
 create_t0 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_t0.setTensorOperand(t0)
+create_t0.setTensorOperand(t0, False)
 num_server.submit(create_t0)
 
 create_t1 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_t1.setTensorOperand(t1)
+create_t1.setTensorOperand(t1, False)
 num_server.submit(create_t1)
 
 create_t2 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_t2.setTensorOperand(t2)
+create_t2.setTensorOperand(t2, False)
 num_server.submit(create_t2)
 
 create_h0 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_h0.setTensorOperand(h0)
+create_h0.setTensorOperand(h0, False)
 num_server.submit(create_h0)
 
 create_s0 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_s0.setTensorOperand(s0)
+create_s0.setTensorOperand(s0, False)
 num_server.submit(create_s0)
 
 create_s1 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_s1.setTensorOperand(s1)
+create_s1.setTensorOperand(s1, False)
 num_server.submit(create_s1)
 
 create_s2 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_s2.setTensorOperand(s2)
+create_s2.setTensorOperand(s2, False)
 num_server.submit(create_s2)
 
 # Evaluate the tensor network
@@ -75,35 +75,35 @@ num_server.submit(network)
 
 # Destroy the tensors
 destroy_s2 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_s2.setTensorOperand(s2)
+destroy_s2.setTensorOperand(s2, False)
 num_server.submit(destroy_s2)
 
 destroy_s1 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_s1.setTensorOperand(s1)
+destroy_s1.setTensorOperand(s1, False)
 num_server.submit(destroy_s1)
 
 destroy_s0 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_s0.setTensorOperand(s0)
+destroy_s0.setTensorOperand(s0, False)
 num_server.submit(destroy_s0)
 
 destroy_h0 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_h0.setTensorOperand(h0)
+destroy_h0.setTensorOperand(h0, False)
 num_server.submit(destroy_h0)
 
 destroy_t2 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_t2.setTensorOperand(t2)
+destroy_t2.setTensorOperand(t2, False)
 num_server.submit(destroy_t2)
 
 destroy_t1 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_t1.setTensorOperand(t1)
+destroy_t1.setTensorOperand(t1, False)
 num_server.submit(destroy_t1)
 
 destroy_t0 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_t0.setTensorOperand(t0)
+destroy_t0.setTensorOperand(t0, False)
 num_server.submit(destroy_t0)
 
 destroy_z0 = op_factory.createTensorOpShared(exatn.TensorOpCode.DESTROY)
-destroy_z0.setTensorOperand(z0)
+destroy_z0.setTensorOperand(z0, False)
 num_server.submit(destroy_z0)
 
 #Finish up
