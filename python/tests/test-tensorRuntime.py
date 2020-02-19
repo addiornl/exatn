@@ -29,7 +29,7 @@ print("Create tensor operation for contracting tensors")
 contract_tensors = op_factory.createTensorOpShared(exatn.TensorOpCode.CONTRACT)
 contract_tensors.setTensorOperand(tensor0, False)
 contract_tensors.setTensorOperand(tensor1, False)
-contract_tensors.setTensorOperand(tensor2, False)
+contract_tensors.setTensorOperand(tensor2, False) 
 contract_tensors.setScalar(0,np.cdouble(0.5j + 0))
 contract_tensors.setIndexPattern("D(a,b,c,d)+=L(c,a,k,l)*R(d,l,k,b)")
 

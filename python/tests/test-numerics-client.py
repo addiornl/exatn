@@ -54,7 +54,7 @@ network.placeTensor(7, exatn.Tensor("S2", [2,2]),
 
 network.finalize()
 network.printIt()
-
+ 
 
 #make another TensorNetwork to test the appendTensorNetwork functionality
 append_network = exatn.TensorNetwork("{0,1} 3-site MPS closure", exatn.Tensor("Z1"),[])

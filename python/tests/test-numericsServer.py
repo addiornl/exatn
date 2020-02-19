@@ -39,7 +39,7 @@ num_server = exatn.getNumServer()
 
 # Create participating ExaTN tensors:
 create_z0 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
-create_z0.setTensorOperand(z0, False)
+create_z0.setTensorOperand(z0, False) 
 num_server.submit(create_z0)
 
 create_t0 = op_factory.createTensorOpShared(exatn.TensorOpCode.CREATE)
