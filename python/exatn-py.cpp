@@ -1,4 +1,5 @@
 #include "exatn_py_utils.hpp"
+#include "tensor-py.hpp"
 #include "pybind11/pybind11.h"
 #include "talshxx.hpp"
 #include "tensor_basic.hpp"
@@ -19,6 +20,9 @@ using namespace pybind11::literals;
 
 void create_exatn_py_module(py::module &m) {
   m.doc() = "Python bindings for ExaTN.";
+
+   bind_tensor(m);
+
 
   py::class_<BytePacket>(m, "BytePacket", "")
       .def_readwrite("base_addr", &BytePacket::base_addr, "")
@@ -179,6 +183,8 @@ void create_exatn_py_module(py::module &m) {
       .def("getVectorSpace", &exatn::numerics::Subspace::getVectorSpace, "")
       .def("getRegisteredId", &exatn::numerics::Subspace::getRegisteredId, "");
 
+
+/*
   py::class_<exatn::numerics::Tensor, std::shared_ptr<exatn::numerics::Tensor>>(
       m, "Tensor", "")
       .def(py::init<std::string>())
@@ -248,6 +254,7 @@ void create_exatn_py_module(py::module &m) {
                exatn::numerics::Tensor::appendDimension,
            "")
       .def("getTensorHash", &exatn::numerics::Tensor::getTensorHash, "");
+      */
 
   py::enum_<exatn::LegDirection>(m, "LegDirection")
       .value("UNDIRECT", exatn::LegDirection::UNDIRECT)
@@ -416,7 +423,7 @@ void create_exatn_py_module(py::module &m) {
       .def("evaluateTensorNetwork", &exatn::NumServer::evaluateTensorNetwork,
            "");
 
-  py::class_<exatn::numerics::TensorConn>(m, "TensorConn", "")
+    py::class_<exatn::numerics::TensorConn>(m, "TensorConn", "")
       .def(py::init<std::shared_ptr<exatn::numerics::Tensor>, unsigned int,
                     const std::vector<exatn::numerics::TensorLeg>>())
       .def("printIt", &exatn::numerics::TensorConn::printIt, "")
