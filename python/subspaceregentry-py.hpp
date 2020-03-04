@@ -12,4 +12,4 @@ using namespace pybind11::literals;
  
 */
 
-void bind_tensoropcreate(py::module& m);
+void bind_subspaceregentry(py::module& m);

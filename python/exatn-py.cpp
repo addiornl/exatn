@@ -25,17 +25,17 @@
 #include "tensorelementtype-py.hpp"
 #include "numserver-py.hpp"
 
-// #include "tensorconn-py.hpp"
-// #include "tensorshape-py.hpp"
-// #include "tensorsignature-py.hpp"
-// #include "subspaceregentry-py.hpp"
-// #include "subspaceregister-py.hpp"
+#include "tensorconn-py.hpp"
+#include "tensorshape-py.hpp"
+#include "tensorsignature-py.hpp"
+#include "subspaceregentry-py.hpp"
+#include "subspaceregister-py.hpp"
 
-// #include "spaceregentry-py.hpp"
-// #include "spaceregister-py.hpp"
-// #include "symmetryrange-py.hpp"
-// #include "spacebasis-py.hpp"
-// #include "basisvector-py.hpp"
+#include "spaceregentry-py.hpp"
+#include "spaceregister-py.hpp"
+#include "symmetryrange-py.hpp"
+#include "spacebasis-py.hpp"
+#include "basisvector-py.hpp"
 
 namespace py = pybind11;
 using namespace exatn;
@@ -72,18 +72,16 @@ void create_exatn_py_module(py::module &m) {
      bind_tensorleg(m);
      bind_tensorelementtype(m);
      bind_numserver(m);
-
-    //  bind_tensorconn(m);
-    //  bind_tensorshape(m);
-    //  bind_tensorsignature(m);
-    //  bind_subspaceregentry(m);
-    //  bind_subspaceregister(m);
-
-    //  bind_spaceregentry(m);
-    //  bind_spaceregister(m);
-    //  bind_symmetryrange(m);
-    //  bind_spacebasis(m);
-    //  bind_basisvector(m);
+     bind_tensorconn(m);
+     bind_tensorshape(m);
+     bind_tensorsignature(m);
+     bind_subspaceregentry(m);
+     bind_subspaceregister(m);
+     bind_spaceregentry(m);
+     bind_spaceregister(m);
+     bind_symmetryrange(m);
+     bind_spacebasis(m);
+     bind_basisvector(m);
 
 
 //   py::class_<BytePacket>(m, "BytePacket", "")
@@ -515,131 +513,131 @@ void create_exatn_py_module(py::module &m) {
 //       .def("evaluateTensorNetwork", &exatn::NumServer::evaluateTensorNetwork,
 //            "");
 
-    py::class_<exatn::numerics::TensorConn>(m, "TensorConn", "")
-      .def(py::init<std::shared_ptr<exatn::numerics::Tensor>, unsigned int,
-                    const std::vector<exatn::numerics::TensorLeg>>())
-      .def("printIt", &exatn::numerics::TensorConn::printIt, "")
-      .def("getNumLegs", &exatn::numerics::TensorConn::getNumLegs, "")
-      .def("getTensorId", &exatn::numerics::TensorConn::getTensorId, "")
-      .def("getTensor", &exatn::numerics::TensorConn::getTensor, "")
-      .def("getTensorLeg", &exatn::numerics::TensorConn::getTensorLeg, "")
-      .def("getTensorLegs", &exatn::numerics::TensorConn::getTensorLegs, "")
-      .def("getDimExtent", &exatn::numerics::TensorConn::getDimExtent, "")
-      .def("getDimSpaceAttr", &exatn::numerics::TensorConn::getDimSpaceAttr, "")
-      .def("resetLeg", &exatn::numerics::TensorConn::resetLeg, "")
-      .def("deleteLeg", &exatn::numerics::TensorConn::deleteLeg, "")
-      .def("deleteLegs", &exatn::numerics::TensorConn::deleteLegs, "")
-      .def("appendLeg",
-           (void (exatn::numerics::TensorConn::*)(
-               std::pair<SpaceId, SubspaceId>, DimExtent,
-               exatn::numerics::TensorLeg)) &
-               exatn::numerics::TensorConn::appendLeg,
-           "")
-      .def("appendLeg",
-           (void (exatn::numerics::TensorConn::*)(DimExtent,
-                                                  exatn::numerics::TensorLeg)) &
-               exatn::numerics::TensorConn::appendLeg,
-           "");
+    // py::class_<exatn::numerics::TensorConn>(m, "TensorConn", "")
+    //   .def(py::init<std::shared_ptr<exatn::numerics::Tensor>, unsigned int,
+    //                 const std::vector<exatn::numerics::TensorLeg>>())
+    //   .def("printIt", &exatn::numerics::TensorConn::printIt, "")
+    //   .def("getNumLegs", &exatn::numerics::TensorConn::getNumLegs, "")
+    //   .def("getTensorId", &exatn::numerics::TensorConn::getTensorId, "")
+    //   .def("getTensor", &exatn::numerics::TensorConn::getTensor, "")
+    //   .def("getTensorLeg", &exatn::numerics::TensorConn::getTensorLeg, "")
+    //   .def("getTensorLegs", &exatn::numerics::TensorConn::getTensorLegs, "")
+    //   .def("getDimExtent", &exatn::numerics::TensorConn::getDimExtent, "")
+    //   .def("getDimSpaceAttr", &exatn::numerics::TensorConn::getDimSpaceAttr, "")
+    //   .def("resetLeg", &exatn::numerics::TensorConn::resetLeg, "")
+    //   .def("deleteLeg", &exatn::numerics::TensorConn::deleteLeg, "")
+    //   .def("deleteLegs", &exatn::numerics::TensorConn::deleteLegs, "")
+    //   .def("appendLeg",
+    //        (void (exatn::numerics::TensorConn::*)(
+    //            std::pair<SpaceId, SubspaceId>, DimExtent,
+    //            exatn::numerics::TensorLeg)) &
+    //            exatn::numerics::TensorConn::appendLeg,
+    //        "")
+    //   .def("appendLeg",
+    //        (void (exatn::numerics::TensorConn::*)(DimExtent,
+    //                                               exatn::numerics::TensorLeg)) &
+    //            exatn::numerics::TensorConn::appendLeg,
+    //        "");
 
-  py::class_<exatn::numerics::TensorShape>(m, "TensorShape", "")
-      .def(py::init<>())
-      .def(py::init<std::initializer_list<int>>())
-      .def(py::init<std::initializer_list<short>>())
-      .def(py::init<std::initializer_list<long>>())
-      .def(py::init<std::initializer_list<unsigned int>>())
-      .def(py::init<std::initializer_list<unsigned short>>())
-      .def(py::init<std::initializer_list<unsigned long>>())
-      .def(py::init<std::vector<int>>())
-      .def(py::init<std::vector<short>>())
-      .def(py::init<std::vector<long>>())
-      .def(py::init<std::vector<unsigned int>>())
-      .def(py::init<std::vector<unsigned short>>())
-      .def(py::init<std::vector<unsigned long>>())
-      .def("printIt", &exatn::numerics::TensorShape::printIt, "")
-      .def("getRank", &exatn::numerics::TensorShape::getRank, "")
-      .def("getDimExtent", &exatn::numerics::TensorShape::getDimExtent, "")
-      .def("getDimExtents", &exatn::numerics::TensorShape::getDimExtents, "")
-      .def("resetDimension", &exatn::numerics::TensorShape::resetDimension, "")
-      .def("deleteDimension", &exatn::numerics::TensorShape::deleteDimension,
-           "")
-      .def("appendDimension", &exatn::numerics::TensorShape::appendDimension,
-           "");
+  // py::class_<exatn::numerics::TensorShape>(m, "TensorShape", "")
+  //     .def(py::init<>())
+  //     .def(py::init<std::initializer_list<int>>())
+  //     .def(py::init<std::initializer_list<short>>())
+  //     .def(py::init<std::initializer_list<long>>())
+  //     .def(py::init<std::initializer_list<unsigned int>>())
+  //     .def(py::init<std::initializer_list<unsigned short>>())
+  //     .def(py::init<std::initializer_list<unsigned long>>())
+  //     .def(py::init<std::vector<int>>())
+  //     .def(py::init<std::vector<short>>())
+  //     .def(py::init<std::vector<long>>())
+  //     .def(py::init<std::vector<unsigned int>>())
+  //     .def(py::init<std::vector<unsigned short>>())
+  //     .def(py::init<std::vector<unsigned long>>())
+  //     .def("printIt", &exatn::numerics::TensorShape::printIt, "")
+  //     .def("getRank", &exatn::numerics::TensorShape::getRank, "")
+  //     .def("getDimExtent", &exatn::numerics::TensorShape::getDimExtent, "")
+  //     .def("getDimExtents", &exatn::numerics::TensorShape::getDimExtents, "")
+  //     .def("resetDimension", &exatn::numerics::TensorShape::resetDimension, "")
+  //     .def("deleteDimension", &exatn::numerics::TensorShape::deleteDimension,
+  //          "")
+  //     .def("appendDimension", &exatn::numerics::TensorShape::appendDimension,
+  //          "");
 
-  py::class_<exatn::numerics::TensorSignature>(m, "TensorSignature", "")
-      .def(py::init<>())
-      .def(py::init<std::initializer_list<std::pair<SpaceId, SubspaceId>>>())
-      .def(py::init<const std::vector<std::pair<SpaceId, SubspaceId>>>())
-      .def(py::init<unsigned int>())
-      .def("printIt", &exatn::numerics::TensorSignature::printIt, "")
-      .def("getRank", &exatn::numerics::TensorSignature::getRank, "")
-      .def("getDimSpaceId", &exatn::numerics::TensorSignature::getDimSpaceId,
-           "")
-      .def("getDimSubspaceId",
-           &exatn::numerics::TensorSignature::getDimSubspaceId, "")
-      .def("resetDimension", &exatn::numerics::TensorSignature::resetDimension,
-           "")
-      .def("deleteDimension",
-           &exatn::numerics::TensorSignature::deleteDimension, "")
-      .def("appendDimension",
-           &exatn::numerics::TensorSignature::appendDimension, "")
-      .def("getDimSpaceAttr",
-           &exatn::numerics::TensorSignature::getDimSpaceAttr, "");
+  // py::class_<exatn::numerics::TensorSignature>(m, "TensorSignature", "")
+  //     .def(py::init<>())
+  //     .def(py::init<std::initializer_list<std::pair<SpaceId, SubspaceId>>>())
+  //     .def(py::init<const std::vector<std::pair<SpaceId, SubspaceId>>>())
+  //     .def(py::init<unsigned int>())
+  //     .def("printIt", &exatn::numerics::TensorSignature::printIt, "")
+  //     .def("getRank", &exatn::numerics::TensorSignature::getRank, "")
+  //     .def("getDimSpaceId", &exatn::numerics::TensorSignature::getDimSpaceId,
+  //          "")
+  //     .def("getDimSubspaceId",
+  //          &exatn::numerics::TensorSignature::getDimSubspaceId, "")
+  //     .def("resetDimension", &exatn::numerics::TensorSignature::resetDimension,
+  //          "")
+  //     .def("deleteDimension",
+  //          &exatn::numerics::TensorSignature::deleteDimension, "")
+  //     .def("appendDimension",
+  //          &exatn::numerics::TensorSignature::appendDimension, "")
+  //     .def("getDimSpaceAttr",
+  //          &exatn::numerics::TensorSignature::getDimSpaceAttr, "");
 
-  py::class_<exatn::numerics::SubspaceRegEntry>(m, "SubspaceRegEntry")
-      .def(py::init<std::shared_ptr<Subspace>>());
+  // py::class_<exatn::numerics::SubspaceRegEntry>(m, "SubspaceRegEntry")
+  //     .def(py::init<std::shared_ptr<Subspace>>());
 
-  py::class_<exatn::numerics::SubspaceRegister>(m, "SubspaceRegister", "")
-      .def(py::init<>())
-      .def("registerSubspace",
-           &exatn::numerics::SubspaceRegister::registerSubspace, "")
-      .def("getSubspace",
-           (const exatn::numerics::Subspace *(
-               exatn::numerics::SubspaceRegister::*)(SubspaceId) const) &
-               exatn::numerics::SubspaceRegister::getSubspace,
-           "")
-      .def(
-          "getSubspace",
-          (const exatn::numerics::Subspace *(
-              exatn::numerics::SubspaceRegister::*)(const std::string &)const) &
-              exatn::numerics::SubspaceRegister::getSubspace,
-          "");
+  // py::class_<exatn::numerics::SubspaceRegister>(m, "SubspaceRegister", "")
+  //     .def(py::init<>())
+  //     .def("registerSubspace",
+  //          &exatn::numerics::SubspaceRegister::registerSubspace, "")
+  //     .def("getSubspace",
+  //          (const exatn::numerics::Subspace *(
+  //              exatn::numerics::SubspaceRegister::*)(SubspaceId) const) &
+  //              exatn::numerics::SubspaceRegister::getSubspace,
+  //          "")
+  //     .def(
+  //         "getSubspace",
+  //         (const exatn::numerics::Subspace *(
+  //             exatn::numerics::SubspaceRegister::*)(const std::string &)const) &
+  //             exatn::numerics::SubspaceRegister::getSubspace,
+  //         "");
 
-  py::class_<exatn::numerics::SpaceRegEntry>(m, "SpaceRegEntry")
-      .def(py::init<std::shared_ptr<exatn::numerics::VectorSpace>>());
+  // py::class_<exatn::numerics::SpaceRegEntry>(m, "SpaceRegEntry")
+  //     .def(py::init<std::shared_ptr<exatn::numerics::VectorSpace>>());
 
-  py::class_<exatn::numerics::SpaceRegister>(m, "SpaceRegister")
-      .def(py::init<>())
-      .def("registerSpace", &exatn::numerics::SpaceRegister::registerSpace, "")
-      .def("registerSubspace",
-           &exatn::numerics::SpaceRegister::registerSubspace, "")
-      .def("getSubspace", &exatn::numerics::SpaceRegister::getSubspace, "")
-      .def("getSpace",
-           (const exatn::numerics::VectorSpace *(
-               exatn::numerics::SpaceRegister::*)(SpaceId) const) &
-               exatn::numerics::SpaceRegister::getSpace,
-           "")
-      .def("getSpace",
-           (const exatn::numerics::VectorSpace *(
-               exatn::numerics::SpaceRegister::*)(const std::string &)const) &
-               exatn::numerics::SpaceRegister::getSpace,
-           "");
+  // py::class_<exatn::numerics::SpaceRegister>(m, "SpaceRegister")
+  //     .def(py::init<>())
+  //     .def("registerSpace", &exatn::numerics::SpaceRegister::registerSpace, "")
+  //     .def("registerSubspace",
+  //          &exatn::numerics::SpaceRegister::registerSubspace, "")
+  //     .def("getSubspace", &exatn::numerics::SpaceRegister::getSubspace, "")
+  //     .def("getSpace",
+  //          (const exatn::numerics::VectorSpace *(
+  //              exatn::numerics::SpaceRegister::*)(SpaceId) const) &
+  //              exatn::numerics::SpaceRegister::getSpace,
+  //          "")
+  //     .def("getSpace",
+  //          (const exatn::numerics::VectorSpace *(
+  //              exatn::numerics::SpaceRegister::*)(const std::string &)const) &
+  //              exatn::numerics::SpaceRegister::getSpace,
+  //          "");
 
-  py::class_<exatn::numerics::SymmetryRange>(m, "SymmetryRange");
+  // py::class_<exatn::numerics::SymmetryRange>(m, "SymmetryRange");
 
-  py::class_<exatn::numerics::SpaceBasis>(m, "SpaceBasis")
-      .def(py::init<DimExtent>())
-      .def(py::init<DimExtent,
-                    const std::vector<exatn::numerics::SymmetryRange>>())
-      .def("printIt", &exatn::numerics::SpaceBasis::printIt, "")
-      .def("getDimension", &exatn::numerics::SpaceBasis::getDimension, "")
-      .def("getSymmetrySubranges",
-           &exatn::numerics::SpaceBasis::getSymmetrySubranges, "")
-      .def("registerSymmetrySubrange",
-           &exatn::numerics::SpaceBasis::registerSymmetrySubrange, "");
+  // py::class_<exatn::numerics::SpaceBasis>(m, "SpaceBasis")
+  //     .def(py::init<DimExtent>())
+  //     .def(py::init<DimExtent,
+  //                   const std::vector<exatn::numerics::SymmetryRange>>())
+  //     .def("printIt", &exatn::numerics::SpaceBasis::printIt, "")
+  //     .def("getDimension", &exatn::numerics::SpaceBasis::getDimension, "")
+  //     .def("getSymmetrySubranges",
+  //          &exatn::numerics::SpaceBasis::getSymmetrySubranges, "")
+  //     .def("registerSymmetrySubrange",
+  //          &exatn::numerics::SpaceBasis::registerSymmetrySubrange, "");
 
-  py::class_<exatn::numerics::BasisVector>(m, "BasisVector")
-      .def(py::init<SubspaceId>())
-      .def("printIt", &exatn::numerics::BasisVector::printIt, "");
+  // py::class_<exatn::numerics::BasisVector>(m, "BasisVector")
+  //     .def(py::init<SubspaceId>())
+  //     .def("printIt", &exatn::numerics::BasisVector::printIt, "");
 
   /**
    ExaTN module definitions
