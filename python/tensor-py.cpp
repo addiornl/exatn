@@ -1,9 +1,10 @@
 #include "tensor-py.hpp"
-#include "pybind11/pybind11.h"
-#include "tensor.hpp"
-//#include "tensor_basic.hpp"
 
-//#include "exatn_numerics.hpp"
+#include "tensor.hpp"
+#include "pybind11/pybind11.h"
+#include "talshxx.hpp"
+#include "tensor_basic.hpp"
+#include "exatn_numerics.hpp"
 
 namespace py = pybind11;
 using namespace exatn;
@@ -11,12 +12,8 @@ using namespace exatn::numerics;
 using namespace pybind11::literals;
 
 /**
- * This module provides the necessary bindings for the ExaTN classes and
- * functionality to be used within python. The various classes are bound with
- * pybind11 and, when this is included in CMake compilation, can be used to
- * write python scripts which leverage the ExaTN functionality.
- */
 
+ */
 void bind_tensor(py::module &m) {
 
 

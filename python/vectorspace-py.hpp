@@ -20,4 +20,4 @@ using namespace pybind11::literals;
  
 */
 
-void bind_tensor(py::module& m);
+void bind_vectorspace(py::module& m);
