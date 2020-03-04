@@ -1,8 +1,10 @@
 
+
+#include "exatn_py_utils.hpp"
 #include "pybind11/pybind11.h"
 #include "talshxx.hpp"
 #include "tensor_basic.hpp"
-#include "exatn_py_utils.hpp"
+
 #include "exatn_numerics.hpp"
 
 #include "bytepacket-py.hpp"
@@ -18,19 +20,16 @@
 #include "vectorspace-py.hpp"
 #include "subspace-py.hpp"
 #include "tensor-py.hpp"
-
 #include "legdirection-py.hpp"
 #include "tensoropcode-py.hpp"
 #include "tensorleg-py.hpp"
 #include "tensorelementtype-py.hpp"
 #include "numserver-py.hpp"
-
 #include "tensorconn-py.hpp"
 #include "tensorshape-py.hpp"
 #include "tensorsignature-py.hpp"
 #include "subspaceregentry-py.hpp"
 #include "subspaceregister-py.hpp"
-
 #include "spaceregentry-py.hpp"
 #include "spaceregister-py.hpp"
 #include "symmetryrange-py.hpp"
