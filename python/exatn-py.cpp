@@ -781,6 +781,7 @@ void create_exatn_py_module(py::module &m) {
     } else {
       assert(false && "Invalid TensorElementType");
     }
+    return py::array();
   });
   m.def("destroyTensor", &destroyTensor, "");
 }

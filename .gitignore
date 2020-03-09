@@ -45,3 +45,4 @@ compile_commands.json
 /doc/doxygen/exatn-api-docs
 
 .vscode/settings.json
+.vscode/c_cpp_properties.json

@@ -17,8 +17,8 @@ using namespace pybind11::literals;
 void bind_tensoroperation(py::module &m) {
 
 py::class_<exatn::numerics::TensorOperation,
-             std::shared_ptr<exatn::numerics::TensorOperation>,
-             PyTensorOperation>(m, "TensorOperation", "")
+             std::shared_ptr<exatn::numerics::TensorOperation>
+             >(m, "TensorOperation", "")
       .def("printIt", &exatn::numerics::TensorOperation::printIt, "")
       .def("isSet", &exatn::numerics::TensorOperation::isSet, "")
       .def("getNumOperands", &exatn::numerics::TensorOperation::getNumOperands,

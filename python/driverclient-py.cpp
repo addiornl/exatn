@@ -4,6 +4,7 @@
 #include "talshxx.hpp"
 #include "tensor_basic.hpp"
 #include "exatn_numerics.hpp"
+#include "DriverClient.hpp"
 
 namespace py = pybind11;
 using namespace exatn;

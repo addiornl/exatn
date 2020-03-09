@@ -1,7 +1,7 @@
 # An example test script to show the functionality of the exatn::NumericsServer python wrapping
-
+#import pdb
 import exatn
-
+#pdb.set_trace()
 #Initialize the ExaTN framework
 exatn.Initialize()
 

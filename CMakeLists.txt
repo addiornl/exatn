@@ -183,8 +183,13 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DEXATN_SERVICE")
 add_subdirectory(tpls)
 add_subdirectory(src)
 
-if(PYTHON_INCLUDE_DIR)
+find_package (Python COMPONENTS Interpreter Development)
+if (Python_FOUND)
   add_subdirectory(python)
 endif()
+#if(PYTHON_INCLUDE_DIR)
+#  add_subdirectory(python)
+#endif()
+
 
 
