@@ -57,7 +57,26 @@ void bind_tensornetwork(py::module &m) {
       .def("reorderOutputModes",
            &exatn::numerics::TensorNetwork::reorderOutputModes, "")
       .def("deleteTensor", &exatn::numerics::TensorNetwork::deleteTensor, "")
-      .def("mergeTensors", &exatn::numerics::TensorNetwork::mergeTensors, "");
+      .def("mergeTensors", &exatn::numerics::TensorNetwork::mergeTensors, "")
+      .def("isValid", &exatn::numerics::TensorNetwork::isValid, "")
+      .def("getRank", &exatn::numerics::TensorNetwork::getRank, "")
+      .def("getMaxTensorId", &exatn::numerics::TensorNetwork::getMaxTensorId, "")
+      .def("rename", &exatn::numerics::TensorNetwork::rename, "")
+      .def("getTensorConnections", &exatn::numerics::TensorNetwork::getTensorConnections, "")    
+      .def("appendTensorGate", &exatn::numerics::TensorNetwork::appendTensorGate, "")
+      .def("splitTensor", &exatn::numerics::TensorNetwork::splitTensor, "")
+      .def("getTensorIdsInNetwork", &exatn::numerics::TensorNetwork::getTensorIdsInNetwork, "")
+      .def("conjugate", &exatn::numerics::TensorNetwork::conjugate, "")
+      .def("collapseIsometries", &exatn::numerics::TensorNetwork::collapseIsometries, "")
+      .def("getContractionCost", &exatn::numerics::TensorNetwork::getContractionCost, "")
+     //.def("substituteTensor", &exatn::numerics::TensorNetwork::substituteTensor, "")
+     //.def("checkConnections", &exatn::numerics::TensorNetwork::checkConnections, "")   
+     //.def("resetOutputTensor", &exatn::numerics::TensorNetwork::resetOutputTensor, "")
+     //  .def("appendTensorNetwork", &exatn::numerics::TensorNetwork::appendTensorNetwork, "")
+     //  .def("appendTensorNetworkGate", &exatn::numerics::TensorNetwork::appendTensorNetworkGate, "")
+     //  .def("importContractionSequence", &exatn::numerics::TensorNetwork::importContractionSequence, "")
+     //  .def("exportContractionSequence", &exatn::numerics::TensorNetwork::exportContractionSequence, "")
+       .def("getOperationList", &exatn::numerics::TensorNetwork::getOperationList, "");     
 
 }
 

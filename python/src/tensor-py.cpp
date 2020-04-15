@@ -65,7 +65,8 @@ void bind_tensor(py::module &m) {
       .def(py::init<std::string, std::initializer_list<unsigned int>>())
       .def(py::init<std::string, std::initializer_list<unsigned short>>())
       .def(py::init<std::string, std::initializer_list<unsigned long>>())
-      .def("printIt", &exatn::numerics::Tensor::printIt, "")
+
+      .def("printIt", &exatn::numerics::Tensor::printIt, "")      
       .def("getName", &exatn::numerics::Tensor::getName, "")
       .def("getRank", &exatn::numerics::Tensor::getRank, "")
       .def("getShape", &exatn::numerics::Tensor::getShape, "")
@@ -85,7 +86,17 @@ void bind_tensor(py::module &m) {
            (void (exatn::numerics::Tensor::*)(DimExtent)) &
                exatn::numerics::Tensor::appendDimension,
            "")
-      .def("getTensorHash", &exatn::numerics::Tensor::getTensorHash, "");
-}
+    /////////////////////////////
+      .def("getTensorHash", &exatn::numerics::Tensor::getTensorHash, "")
+      .def("printItFile", &exatn::numerics::Tensor::printItFile, "")
+      .def("getDimStrides", &exatn::numerics::Tensor::getDimStrides, "")
+      .def("createSubtensor", &exatn::numerics::Tensor::createSubtensor, "")
+      .def("setElementType", &exatn::numerics::Tensor::setElementType, "")
+      .def("getElementType", &exatn::numerics::Tensor::getElementType, "")
+      .def("registerIsometry", &exatn::numerics::Tensor::registerIsometry, "")
+      .def("retrieveIsometries", &exatn::numerics::Tensor::retrieveIsometries, "");
 
+      /////////operator 
+      
+}
  

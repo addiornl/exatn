@@ -17,7 +17,7 @@ if(APPLE)
    set(CMAKE_SHARED_LIBRARY_SUFFIX ".so")
 endif(APPLE)
 
-file (GLOB SOURCES *.cpp)
+file (GLOB_RECURSE SOURCES *.cpp)
 add_library(_pyexatn SHARED ${SOURCES})
 
 set_target_properties(_pyexatn PROPERTIES PREFIX "")
